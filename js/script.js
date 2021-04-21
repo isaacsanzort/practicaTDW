@@ -35,7 +35,6 @@ function getCollaborators(tipo){
     return elements;
 }
 
-//FUNCIONES MAIN
 function main(){
     checkIfLoggedMain();
     setDefaultValues();
@@ -63,7 +62,6 @@ function mainReadIndex(){
     
 }
 
-//Desarrollo del main
 function checkIfLoggedMain(){
     if(getLoginStatus() == true){
         setTimeout(() => {
@@ -122,7 +120,7 @@ function showSection(tipo){
     }
 }
 
-//Desarrollo del mainCreateOrEditWindow
+
 function checkIfLoggedWindow(){
     if(getLoginStatus() == true){
         setTimeout(() => {
@@ -177,7 +175,7 @@ function showEditCheckbox(elem){
     markCheckbox(elem);
 }
 
-//ERROR
+
 function markCheckbox(elem){
     const checkboxes = document.querySelectorAll(`input[type="checkbox"]`);
     checkboxes.forEach((checkbox) => {
@@ -188,7 +186,7 @@ function markCheckbox(elem){
     });
 }
 
-//Edit Button
+
 function showEditSaveButton(){
     let button = document.createElement("button");
     const container = document.getElementById("pie-pagina");
@@ -260,7 +258,7 @@ function addElement(e){
     goToHomeWindow();
 }
 
-//Otro botón
+
 function showCreateButton(){
     const button = getAddButtonHtml("Crear");
     const container = document.getElementById("pie-pagina");
@@ -269,8 +267,7 @@ function showCreateButton(){
     container.appendChild(button);
 }
 
-//DESARROLLO //Desarrollo del mainREADIndex.html
-//Otro boton
+
 function addEditButton(){
     const contenedor = document.getElementById('cabecera-index');
     const button = document.createElement("button");
@@ -364,7 +361,7 @@ function showCardCollaboratorsList(array,tipo){
     contenedor.appendChild(ul);
 }
 
-//FUNCIONALIDADES NO REPRESEnTADAS EN LOS MAIN
+
 function login() {
     if (isUserAndPasswdCorrect()){
         updateLoginStatus(true);
@@ -385,14 +382,14 @@ function showWriterScreen(){
     showCreateButtons();
 }
 
-//Boton
+
 function replaceLoginWithLogout(){
     const authentication = document.getElementById("authentication");
     const html = getLogoutButtonHtml();
     authentication.innerHTML = html;
 }
 
-//Boton
+
 function showDeleteButtons(){
     let resumenElementos = document.getElementsByClassName('resumen-descripcion');
     for(resumenElemento of resumenElementos){
@@ -409,7 +406,7 @@ function showCreateButtons(){
     changeHeaders(tipos.ENTIDADES);
 }
 
-//Bton
+
 function changeHeaders(tipoCabecera){
     const cabecera = document.getElementById("cabecera-" + tipoCabecera);
     const button = getAddButtonHtml(tipoCabecera);
@@ -439,7 +436,7 @@ function removeButtons(className){
     }
 }
 
-//Delete
+
 function remove(elem){
     const contenedor = elem.parentNode.parentNode.parentNode;
     let info = elem.parentNode;
@@ -497,7 +494,7 @@ function deleteVisually(contenedor){
     contenedor.remove();
 }
 
-//FUNCIONES GET Y UPDATE
+
 function getStorageLastId(){
     return JSON.parse(sessionStorage.getItem('lastIdGiven'));
 }
@@ -513,7 +510,8 @@ function getStorageArray(tipo){
 function getStorageTipo(){
     return sessionStorage.getItem('tipo');
 }
-//Cambiar luego el nombre
+
+
 function getLoginStatus(){
     return JSON.parse(sessionStorage.getItem('logged'));
 }
@@ -681,7 +679,7 @@ function goToCreateWindow(elem){
     goToCreateEditWindow();
 }
 
-//VARIABLES POR DEFECTO
+
 let persona1 = {
     id : 1,
     tipo : "personas",
